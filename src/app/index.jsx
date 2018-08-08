@@ -100,9 +100,9 @@ ReactDOM.render(
         <Route path="/admin" component={Admin} level={ADMIN_LEVEL} onEnter={requireAuth} />
         <Route path="/admin/:type/:action" component={Admin} level={ADMIN_LEVEL} onEnter={requireAuth} />
         <Route path="/admin/:type/:action/:slug" component={Admin} level={ADMIN_LEVEL} onEnter={requireAuth} />
-        <Route path="/orgnaizer" component={Orgnaizer}  onEnter={requireAuth} />
-        <Route path="/orgnaizer/:type/:action" component={Orgnaizer}  onEnter={requireAuth} />
-        <Route path="/orgnaizer/:type/:action/:slug" component={Orgnaizer}  onEnter={requireAuth} />
+        <Route path="/orgnaizer" component={Orgnaizer} level={4} onEnter={requireAuth} />
+        <Route path="/orgnaizer/:type/:action" component={Orgnaizer} level={4} onEnter={requireAuth} />
+        <Route path="/orgnaizer/:type/:action/:slug" component={Orgnaizer} level={4}  onEnter={requireAuth} />
         <Route path="*" component={NotFound} />
       </Route>
     </Router>
