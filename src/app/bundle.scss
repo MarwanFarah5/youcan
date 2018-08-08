@@ -1,0 +1,41 @@
+// Current theme common styles
+@import './themes/youcanparts/styles/variables';
+@import './themes/youcanparts/styles/mixins';
+@import './themes/youcanparts/styles/utilities';
+@import './themes/youcanparts/styles/elements';
+@import './themes/youcanparts/styles/buttons';
+@import './themes/youcanparts/styles/animations';
+@import './themes/youcanparts/styles/cards';
+@import './themes/youcanparts/styles/pages';
+@import './themes/youcanparts/styles/global';
+
+// Current theme common component styles
+@import './themes/youcanparts/components/topnav/topnav';
+@import './themes/youcanparts/components/navigation/navigation';
+@import './themes/youcanparts/components/breadcrumbs/breadcrumbs';
+@import './themes/youcanparts/components/footer/footer';
+@import './themes/youcanparts/components/search/search';
+@import './themes/youcanparts/components/loader/loader';
+@import './themes/youcanparts/components/chat/chat';
+@import './themes/youcanparts/components/calendar/calendar';
+@import './themes/youcanparts/components/grades/grades';
+@import './themes/youcanparts/components/help/help';
+@import './themes/youcanparts/components/notification/notification';
+
+// Current theme page styles
+@import './themes/youcanparts/pages/home/home';
+@import './themes/youcanparts/pages/dashboard/dashboard';
+@import './themes/youcanparts/pages/notFound/notFound';
+@import './themes/youcanparts/pages/account/notifications';
+@import './themes/youcanparts/pages/account/settings';
+@import './themes/youcanparts/pages/page/page';
+@import './themes/youcanparts/pages/post/post';
+@import './themes/youcanparts/pages/listing/listing';
+@import './themes/youcanparts/pages/course/course';
+@import './themes/youcanparts/pages/subject/subject';
+@import './themes/youcanparts/pages/module/module';
+@import './themes/youcanparts/pages/activity/activity';
+
+// Core admin styles
+@import './core/admin/admin';
+@import './core/common/modalbox/modalbox';
