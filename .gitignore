@@ -2,7 +2,6 @@
 /dist
 /functions
 /.idea
-.DS_Store
-.env
+.DS_Stor
 bundle.js
 npm-debug.log
