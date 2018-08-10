@@ -589,7 +589,7 @@ class Admin extends Component {
           ? <div className="columns">
             <div className="nav column">
               <div className="block clearfix">
-                <div className="item-type-list" >
+                <div className="item-type-list">
                   <Icon glyph={User} />
                   <Select2
                     className="select-items" style={{
@@ -967,35 +967,6 @@ class Admin extends Component {
                       value={creditFee}
                       onChange={event => this.updateInput(event, 'creditFee')}
                     />
-                    <Select2
-                      multiple
-                      style={{
-                        width: '100%'
-                      }}
-                      data={files}
-                      options={{
-                        placeholder: 'Select a file to copy its URL...',
-                        allowClear: true,
-                        templateResult: Orgnaizer.formatFileType,
-                        templateSelection: Orgnaizer.formatFileType
-                      }}
-                      onChange={event => this.fileSelected(event.currentTarget)}
-                    />
-                  <label className="option-label">uplod Video Course</label>
-                    <span>{(this.state.selectedItem && this.state.selectedItem.uplaodCourse)
-                        ? <a
-                          href={this.props.files[this.state.selectedItem.uplaodCourse]
-                            ? this.props.files[this.state.selectedItem.uplaodCourse].url
-                            : ''} target="_blank" rel="noopener noreferrer"
-                        >{this.props.files[this.state.selectedItem.uplaodCourse]
-                          ? this.props.files[this.state.selectedItem.uplaodCourse].file
-                          : ''}</a>
-                        : 'none'}</span>
-                    <button
-                      className={classNames('btn btn-cancel btn-xs', {
-                        visible: (this.state.selectedItem && this.state.selectedItem.uplaodCourse && this.state.selectedItem.uplaodCourse !== '')
-                      })} onClick={() => this.updateItem('', 'uplaodCourse')}
-                    >unlink</button>
                   </div>
                 </div>
 

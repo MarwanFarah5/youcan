@@ -309,8 +309,9 @@
 			&.visible { display: inline-block }
 		}
 	}
-#foo_label { display: none;}
-#foo_active { display: none;}
+
+#foo_label {display: none;}
+#foo_active {display: none;}
 	.featured-image-wrapper {
 		float: right;
 		max-width: 20%;

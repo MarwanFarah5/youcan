@@ -137,6 +137,7 @@ class Orgnaizer extends Component {
       }
     }
   componentDidMount() {
+    console.log(this.state)
     this.props.setLoading(false);
     $('.js-main').removeClass().addClass('main js-main admin-page');
   }
@@ -170,6 +171,15 @@ class Orgnaizer extends Component {
           const fileRef = this.storageRef.child(`files/${this.state.selectedItem.file}`);
           fileRef.getMetadata().then((metadata) => {
             this.setState({ fileMetadata: metadata });
+          }).catch((error) => {
+            this.props.setNotification({ message: error, type: 'error' });
+          });
+        }
+        if (type === 'VideoCoures') {
+          // Load file meta data
+          const fileRef = this.storageRef.child(`files/${this.state.selectedItem.VideoCoures}`);
+          fileRef.getMetadata().then((metadata) => {
+            this.setState({ VideoCoures: metadata });
           }).catch((error) => {
             this.props.setNotification({ message: error, type: 'error' });
           });
@@ -212,6 +222,7 @@ class Orgnaizer extends Component {
     this.refs['groups-select'].selectedIndex = 0;
     this.refs['courses-select'].selectedIndex = 0;
     this.refs['subjects-select'].selectedIndex = 0;
+
     this.refs['modules-select'].selectedIndex = 0;
     this.refs['activities-select'].selectedIndex = 0;
     this.refs['posts-select'].selectedIndex = 0;
@@ -475,6 +486,11 @@ updateInput(event, prop) {
 
   toggleElement(ref) {
     $(this.refs[ref]).toggleClass('active');
+  }
+  getTheCourseVal(fileId){
+    if(!isEmpty(fileId)){
+
+    }
   }
 
   createList(type) {
@@ -1000,34 +1016,18 @@ updateInput(event, prop) {
                       onChange={event => this.updateMultiSelect(event.currentTarget, 'subjects')}
                     />
                     <Select2
-                      multiple
                       style={{
                         width: '100%'
-                      }}
-                      data={files}
-                      options={{
-                        placeholder: 'Select a file to copy its URL...',
-                        allowClear: true,
-                        templateResult: Orgnaizer.formatFileType,
-                        templateSelection: Orgnaizer.formatFileType
-                      }}
-                      onChange={event => this.fileSelected(event.currentTarget)}
+                      }} multiple data={files} value={(this.state.selectedItem && this.state.selectedItem.VideoCoures)
+                        ? this.state.selectedItem.VideoCoures
+                        : []} options={{
+                          placeholder: 'Video Courses...',
+                          allowClear: true
+                        }}
+                      onChange={event => this.updateMultiSelect(event.currentTarget, 'VideoCoures')}
                     />
-                  <label className="option-label">uplod Video Course</label>
-                    <span>{(this.state.selectedItem && this.state.selectedItem.uplaodCourse)
-                        ? <a
-                          href={this.props.files[this.state.selectedItem.uplaodCourse]
-                            ? this.props.files[this.state.selectedItem.uplaodCourse].url
-                            : ''} target="_blank" rel="noopener noreferrer"
-                        >{this.props.files[this.state.selectedItem.uplaodCourse]
-                          ? this.props.files[this.state.selectedItem.uplaodCourse].file
-                          : ''}</a>
-                        : 'none'}</span>
-                    <button
-                      className={classNames('btn btn-cancel btn-xs', {
-                        visible: (this.state.selectedItem && this.state.selectedItem.uplaodCourse && this.state.selectedItem.uplaodCourse !== '')
-                      })} onClick={() => this.updateItem('', 'uplaodCourse')}
-                    >unlink</button>
+                  <label className="option-label">related Videos</label>
+
                   </div>
 
                   <div
